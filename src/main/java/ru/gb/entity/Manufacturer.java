@@ -21,14 +21,14 @@ import java.util.Set;
 })
 public class Manufacturer {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
     @Column(name = "NAME")
     private String name;
 
-    @Transient
+    @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Product> products;
 
     public boolean addProduct(Product product) {
@@ -44,6 +44,6 @@ public class Manufacturer {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", products=" + products +
-                "\n}";
+                '}';
     }
 }

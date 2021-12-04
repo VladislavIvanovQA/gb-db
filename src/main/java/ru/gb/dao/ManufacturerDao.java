@@ -6,7 +6,7 @@ public interface ManufacturerDao {
     Iterable<Manufacturer> findAll();
     Manufacturer findById(Long id);
     String findNameById(Long id);
-    void insert(Manufacturer manufacturer);
-    void update(Manufacturer manufacturer);
+    Manufacturer save(Manufacturer manufacturer);
     void deleteById(Long id);
+    void delete(Manufacturer manufacturer);
 }
