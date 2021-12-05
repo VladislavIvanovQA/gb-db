@@ -2,11 +2,12 @@ package ru.gb.dao;
 
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.gb.entity.Cart;
 
 @RequiredArgsConstructor
-//@Repository
+@Repository
 public class HibernateCartDao implements CartDao {
 
     private final SessionFactory sessionFactory;

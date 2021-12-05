@@ -34,13 +34,34 @@ CREATE TABLE CART_PRODUCT
 
     PRIMARY KEY (CART_ID, PRODUCT_ID),
 
-    CONSTRAINT fk_cart_product_cart,
-    FOREIGN KEY (CART_ID)
-        REFERENCES CART (ID),
+    CONSTRAINT fk_cart_product_cart
+        FOREIGN KEY (CART_ID)
+            REFERENCES CART (ID),
 
     CONSTRAINT fk_cart_product_product
         FOREIGN KEY (PRODUCT_ID)
             REFERENCES PRODUCT (ID)
 );
 
+CREATE TABLE BUYER
+(
+    ID   BIGSERIAL NOT NULL PRIMARY KEY,
+    NAME VARCHAR(255) DEFAULT ''
+);
+
+CREATE TABLE BUYER_ORDER
+(
+    BUYER_ID BIGINT         NOT NULL,
+    CART_ID  BIGINT         NOT NULL,
+
+    PRIMARY KEY (BUYER_ID, CART_ID),
+
+    CONSTRAINT fk_cart_buyer
+        FOREIGN KEY (BUYER_ID)
+            REFERENCES BUYER (ID),
+
+    CONSTRAINT fk_cart_product_cart
+        FOREIGN KEY (CART_ID)
+            REFERENCES CART (ID)
+)
 
