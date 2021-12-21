@@ -1,12 +1,9 @@
 package ru.gb.dao;
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import ru.gb.entity.Buyer;
-import ru.gb.entity.Product;
 
-import java.util.Collection;
+public interface BuyerDao extends JpaRepository<Buyer, Long> {
 
-public interface BuyerDao {
-    Iterable<Buyer> findAll();
-    Buyer findById(Long id);
-    Buyer save(Buyer buyer);
 }
